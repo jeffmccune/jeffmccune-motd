@@ -1,0 +1,16 @@
+-------------------------------------------------
+Welcome to the host named <%= hostname %>
+<%= operatingsystem %> <%= operatingsystemrelease %> <%= architecture %>
+-------------------------------------------------
+Puppet: <%= puppetversion %>
+Facter: <%= facterversion %>
+
+FQDN: <%= fqdn %>
+IP:   <%= ipaddress %>
+
+<% if has_variable?("processor0") then -%>
+Processor: <%= processor0 %>
+<% end -%>
+Memory:    <%= memorysize %>
+
+-------------------------------------------------
