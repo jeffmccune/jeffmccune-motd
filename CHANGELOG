@@ -1,0 +1,5 @@
+1.0.1 Jeff McCune <jeff@puppetlabs.com> 2011-03-18
+- Removed README files from lib directory to prevent pluginsync breakage.
+
+1.0.0
+- Initial release
