@@ -1,5 +1,5 @@
 name    'jeffmccune-motd'
-version '1.0.2'
+version '1.0.3'
 source 'puppetlabs-motd'
 author 'Jeff McCune <jeff@puppetlabs.com>'
 license 'Apache'
