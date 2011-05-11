@@ -13,11 +13,17 @@
 #
 # [Remember: No empty lines between comments and class definition]
 class motd {
+
+  $motd_group = $operatingsystem ? {
+    solaris => 'sys',
+    default => '0',
+  }
+
   file { '/etc/motd':
     ensure  => file,
     content => template("${module_name}/motd.erb"),
-    owner   => 0,
-    group   => 0,
-    mode    => 0644,
+    owner   => '0',
+    group   => $motd_group,
+    mode    => '0644',
   }
 }
