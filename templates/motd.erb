@@ -1,6 +1,6 @@
 -------------------------------------------------
 Welcome to the host named <%= hostname %>
-<%= operatingsystem %> <%= operatingsystemrelease %> <%= architecture %>
+<%= operatingsystem %> <%= operatingsystemrelease %> <% if has_variable?("architecture") then %><%= architecture %><% end %>
 -------------------------------------------------
 Puppet: <%= puppetversion %>
 Facter: <%= facterversion %>
