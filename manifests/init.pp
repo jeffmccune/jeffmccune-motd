@@ -12,7 +12,11 @@
 #  include motd
 #
 # [Remember: No empty lines between comments and class definition]
-class motd {
+class motd(
+  $show_classes = true,
+) {
+
+  validate_bool($show_classes)
 
   $motd_group = $operatingsystem ? {
     solaris => 'sys',

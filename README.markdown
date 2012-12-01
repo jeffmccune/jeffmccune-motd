@@ -3,12 +3,16 @@
 This is a simple Puppet module to manage the Message of the day on unix
 operating systems.
 
+This is Ryan's fork of Jeff McCune's work. Code will most likely be ported
+upstream once a few rounds of functionality are built and tested. It could
+also potentially replace the puppetlabs-motd module so please offer feedback
+now!
+
 # Author #
 
  * Jeff McCune <jeff@puppetlabs.com>
- * [GitHub Project](https://github.com/jeffmccune/jeffmccune-motd)
- * [Blog](http://www.metamachine.net)
- * [@0xEFF](http://twitter.com/0xEFF)
+ * Ryan Coleman <ryan@puppetlabs.com> (contributor)
+   - ryancoleman on the #puppet Freenode IRC channel
 
 # Sample #
 
@@ -24,7 +28,13 @@ operating systems.
     
     Processor: Intel(R) Core(TM)2 Duo CPU     P8800  @ 2.66GHz
     Memory:    491.56 MB
-    
+
+    The following classes have been declared on this node
+    during the most recent Puppet run against the Puppet
+    Master located at centos6.puppetlabs.vm.
+    - settings
+    - default
+    - motd
     -------------------------------------------------
 
 # Getting Started #
@@ -32,4 +42,9 @@ operating systems.
 In your puppet manifests, site.pp or in the Dashboard or other ENC:
 
     include motd
+
+By default, the message of the day will include information about the
+classes declared on the node during the most recent Puppet run. If this
+is not desirable, declare the motd class with the parameter 'show_classes'
+set to 'false'.
 

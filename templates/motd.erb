@@ -15,4 +15,17 @@ Processor: <%= processor0 %>
 Memory:    <%= memorysize %>
 <% end -%>
 
+<% if show_classes then -%>
+<% if has_variable?("servername") then -%>
+The following classes have been declared on this node
+during the most recent Puppet run against the Puppet
+Master located at <%= servername %>.
+<% else -%>
+The following classes have been declared on this node
+during the most recent Puppet run.
+<% end -%>
+<% classes.each do |klass| -%>
+- <%= klass %>
+<% end -%>
+<% end -%>
 -------------------------------------------------
