@@ -2,8 +2,6 @@
 Welcome to the host named <%= hostname %>
 <%= operatingsystem %> <%= operatingsystemrelease %> <% if has_variable?("architecture") then %><%= architecture %><% end %>
 -------------------------------------------------
-Puppet: <%= puppetversion %>
-Facter: <%= facterversion %>
 
 FQDN: <%= fqdn %>
 IP:   <%= ipaddress %>
@@ -15,7 +13,10 @@ Processor: <%= processor0 %>
 Memory:    <%= memorysize %>
 <% end -%>
 
-<% if show_classes then -%>
+<% if puppet_info then -%>
+Puppet: <%= puppetversion %>
+Facter: <%= facterversion %>
+
 <% if has_variable?("servername") then -%>
 The following classes have been declared on this node
 during the most recent Puppet run against the Puppet

@@ -13,10 +13,11 @@
 #
 # [Remember: No empty lines between comments and class definition]
 class motd(
-  $show_classes = true,
+  $puppet_info = true,
+  $hardware_info = true,
 ) {
 
-  validate_bool($show_classes)
+  validate_bool($puppet_info, $hardware_info)
 
   $motd_group = $operatingsystem ? {
     solaris => 'sys',
