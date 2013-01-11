@@ -1,5 +1,5 @@
 name    'rcoleman-motd'
-version '1.1.0'
+version '1.2.0'
 source 'puppetlabs-motd'
 author 'Jeff McCune <jeff@puppetlabs.com>'
 license 'Apache'
