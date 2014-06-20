@@ -19,14 +19,14 @@ class motd(
 
   validate_bool($puppet_info, $hardware_info)
 
-  $motd_group = $operatingsystem ? {
+  $motd_group = $::operatingsystem ? {
     solaris => 'sys',
     default => '0',
   }
 
   file { '/etc/motd':
     ensure  => file,
-    content => template("${module_name}/motd.erb"),
+    content => template("${module_name}/ss_motd.erb"),
     owner   => '0',
     group   => $motd_group,
     mode    => '0644',
