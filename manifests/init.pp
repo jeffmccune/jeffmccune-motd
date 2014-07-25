@@ -19,6 +19,8 @@ class motd {
     default => '0',
   }
 
+  $custommessage = 'This is a production system! All activity monitored.'
+
   file { '/etc/motd':
     ensure  => file,
     content => template("${module_name}/motd.erb"),
