@@ -7,6 +7,8 @@
 # [*template*]
 #   Sets the path to the template to use as content for main motd file
 #   If defined, main motd file has: content => content("$template")
+# [*$show_classes*]
+#   Disable ehxibition of classes used by puppet
 #
 # Actions:
 #
