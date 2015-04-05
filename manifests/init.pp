@@ -20,9 +20,10 @@ class motd(
   $puppet_info = true,
   $hardware_info = true,
   $template = 'motd/motd.erb',
+  $show_classes = true,
 ) {
 
-  validate_bool($puppet_info, $hardware_info)
+  validate_bool($puppet_info, $hardware_info, $show_classes)
 
   $motd_group = $::operatingsystem ? {
     solaris => 'sys',

@@ -1,5 +1,5 @@
 -------------------------------------------------
-Welcome to the host named <%= hostname %>
+Welcome to the host named <%= @hostname %>
 <%= operatingsystem %> <%= operatingsystemrelease %> <% if has_variable?("architecture") then %><%= architecture %><% end %>
 -------------------------------------------------
 
@@ -25,8 +25,10 @@ Master located at <%= servername %>.
 The following classes have been declared on this node
 during the most recent Puppet run.
 <% end -%>
+<% if @show_classes then -%>
 <% classes.each do |klass| -%>
 - <%= klass %>
+<% end -%>
 <% end -%>
 <% end -%>
 -------------------------------------------------
