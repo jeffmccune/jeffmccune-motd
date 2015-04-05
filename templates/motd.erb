@@ -1,26 +1,26 @@
 -------------------------------------------------
 Welcome to the host named <%= @hostname %>
-<%= operatingsystem %> <%= operatingsystemrelease %> <% if has_variable?("architecture") then %><%= architecture %><% end %>
+<%= @operatingsystem %> <%= @operatingsystemrelease %> <% if has_variable?("architecture") then %><%= @architecture %><% end %>
 -------------------------------------------------
 
-FQDN: <%= fqdn %>
-IP:   <%= ipaddress %>
+FQDN: <%= @fqdn %>
+IP:   <%= @ipaddress %>
 
 <% if has_variable?("processor0") then -%>
-Processor: <%= processor0 %>
+Processor: <%= @processor0 %>
 <% end -%>
 <% if has_variable?("memorysize") then -%>
-Memory:    <%= memorysize %>
+Memory:    <%= @memorysize %>
 <% end -%>
 
-<% if puppet_info then -%>
-Puppet: <%= puppetversion %>
-Facter: <%= facterversion %>
+<% if @puppet_info then -%>
+Puppet: <%= @puppetversion %>
+Facter: <%= @facterversion %>
 
 <% if has_variable?("servername") then -%>
 The following classes have been declared on this node
 during the most recent Puppet run against the Puppet
-Master located at <%= servername %>.
+Master located at <%= @servername %>.
 <% else -%>
 The following classes have been declared on this node
 during the most recent Puppet run.
