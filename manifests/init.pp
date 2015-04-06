@@ -23,6 +23,7 @@ class motd(
   $hardware_info = true,
   $template = 'motd/motd.erb',
   $show_classes = true,
+  $content_footer = undef,
 ) {
 
   validate_bool($puppet_info, $hardware_info, $show_classes)
