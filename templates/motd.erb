@@ -23,7 +23,10 @@ Master located at <%= @servername %>.
 <% if @show_classes then -%>
 The following classes have been declared on this node
 during the most recent Puppet run.
-<% classes.each do |klass| -%>
+<% last = 'zzzzz' -%>
+<% classes.sort.each do |klass| -%>
+<%   next if /param/.match(klass) ||  klass.start_with?(last)   -%>
+<%   last = klass -%>
 - <%= klass %>
 <% end -%>
 <% end -%>
