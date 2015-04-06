@@ -16,16 +16,13 @@ Memory:    <%= @memorysize %>
 <% if @puppet_info then -%>
 Puppet: <%= @puppetversion %>
 Facter: <%= @facterversion %>
-
 <% if has_variable?("servername") then -%>
-The following classes have been declared on this node
-during the most recent Puppet run against the Puppet
 Master located at <%= @servername %>.
-<% else -%>
+<% end -%>
+
+<% if @show_classes then -%>
 The following classes have been declared on this node
 during the most recent Puppet run.
-<% end -%>
-<% if @show_classes then -%>
 <% classes.each do |klass| -%>
 - <%= klass %>
 <% end -%>
