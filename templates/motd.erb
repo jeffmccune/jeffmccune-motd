@@ -1,18 +1,34 @@
 -------------------------------------------------
-Welcome to the host named <%= hostname %>
-<%= operatingsystem %> <%= operatingsystemrelease %> <% if has_variable?("architecture") then %><%= architecture %><% end %>
+Welcome to the host named <%= @hostname %>
+<%= @operatingsystem %> <%= @operatingsystemrelease %> <% if @architecture then %><%= @architecture %><% end %>
 -------------------------------------------------
-Puppet: <%= puppetversion %>
-Facter: <%= facterversion %>
-
-FQDN: <%= fqdn %>
-IP:   <%= ipaddress %>
-
-<% if has_variable?("processor0") then -%>
-Processor: <%= processor0 %>
+IP: <%= @ipaddress %> FQDN: <%= @fqdn %>
+<% if @processor0 then -%>
+Processor: <%= @processor0 + " " -%>
 <% end -%>
 <% if has_variable?("memorysize") then -%>
-Memory:    <%= memorysize %>
+Memory:    <%= @memorysize %>
 <% end -%>
 
+<% if @puppet_info then -%>
+Puppet: <%= @puppetversion %> Facter: <%= @facterversion %>
+<% if has_variable?("servername") then -%>
+Puppet Master is <%= @servername %>.
+<% end -%>
+
+<% if @show_classes then -%>
+The following classes have been declared on this node
+during the most recent Puppet run.
+<% last = 'zzzzz' -%>
+<% classes.sort.each do |klass| -%>
+<%   next if /param/.match(klass) ||  klass.start_with?(last)   -%>
+<%   last = klass -%>
+- <%= klass %>
+<% end -%>
+<% end -%>
+<% end -%>
+<% if @config['footer'] then -%>
+-------------------------------------------------
+<%=  @config['footer'].kind_of?(Array) ? @config['footer'].flatten().join("\n") : @config['footer'] %>
+<% end -%>
 -------------------------------------------------
