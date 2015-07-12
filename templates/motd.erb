@@ -1,23 +1,19 @@
 -------------------------------------------------
 Welcome to the host named <%= @hostname %>
-<%= @operatingsystem %> <%= @operatingsystemrelease %> <% if has_variable?("architecture") then %><%= @architecture %><% end %>
+<%= @operatingsystem %> <%= @operatingsystemrelease %> <% if @architecture then %><%= @architecture %><% end %>
 -------------------------------------------------
-
-FQDN: <%= @fqdn %>
-IP:   <%= @ipaddress %>
-
-<% if has_variable?("processor0") then -%>
-Processor: <%= @processor0 %>
+IP: <%= @ipaddress %> FQDN: <%= @fqdn %>
+<% if @processor0 then -%>
+Processor: <%= @processor0 + " " -%>
 <% end -%>
 <% if has_variable?("memorysize") then -%>
 Memory:    <%= @memorysize %>
 <% end -%>
 
 <% if @puppet_info then -%>
-Puppet: <%= @puppetversion %>
-Facter: <%= @facterversion %>
+Puppet: <%= @puppetversion %> Facter: <%= @facterversion %>
 <% if has_variable?("servername") then -%>
-Master located at <%= @servername %>.
+Puppet Master is <%= @servername %>.
 <% end -%>
 
 <% if @show_classes then -%>
@@ -33,6 +29,6 @@ during the most recent Puppet run.
 <% end -%>
 <% if @config['footer'] then -%>
 -------------------------------------------------
-<%= @config['footer'] %>
+<%=  @config['footer'].kind_of?(Array) ? @config['footer'].flatten().join("\n") : @config['footer'] %>
 <% end -%>
 -------------------------------------------------
