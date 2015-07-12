@@ -10,15 +10,18 @@
 # [*config*]
 #   Hash of configs for template.
 #     config => { 
-#                footer => 'Have a nice day!',
+#                footer => [ 'We are watching you!', 'Have a nice day!' ],
+#                my_item => 'lorem ipslum',
 #     }
 #
 #   And in the template:
-#       <%= @config['footer'] %>
+#       <%= @config['my_item'] %>
 # [*show_classes*]
-#   Disable ehxibition of classes used by puppet
-# [*content_footer*]
-#   Add content at the footer of the motd.
+#   Adds ehxibition of classes used by puppet.
+# [*puppet_info*]
+#   Display puppet information.
+# [*hardware_info*]
+#   Adds hoardware info.
 #
 # Actions:
 #

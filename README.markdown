@@ -36,6 +36,9 @@ now!
     - default
     - motd
     -------------------------------------------------
+    Footer first line
+    Have Fun!
+    -------------------------------------------------
 
 # Getting Started #
 
@@ -47,4 +50,19 @@ By default, the message of the day will include information about the
 classes declared on the node during the most recent Puppet run. If this
 is not desirable, declare the motd class with the parameter 'show_classes'
 set to 'false'.
+
+The config parameter should be used to provide a hash for use in the template.
+
+
+Setting a custom footer with the default template:
+
+    class {'motd':
+      config => {
+        footer => [
+           "Footer first line",
+           "Have Fun!",
+        ]
+    }
+
+
 
