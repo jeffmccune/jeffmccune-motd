@@ -7,6 +7,14 @@
 # [*template*]
 #   Sets the path to the template to use as content for main motd file
 #   If defined, main motd file has: content => content("$template")
+# [*config*]
+#   Hash of configs for template.
+#     config => { 
+#                footer => 'Have a nice day!',
+#     }
+#
+#   And in the template:
+#       <%= @config['footer'] %>
 # [*show_classes*]
 #   Disable ehxibition of classes used by puppet
 # [*content_footer*]
@@ -25,7 +33,9 @@ class motd(
   $hardware_info = true,
   $template = 'motd/motd.erb',
   $show_classes = true,
-  $content_footer = undef,
+  $config =  {
+    footer => 'Have Fun!',
+  }
 ) {
 
   validate_bool($puppet_info, $hardware_info, $show_classes)
