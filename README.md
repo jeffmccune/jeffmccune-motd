@@ -5,9 +5,9 @@ operating systems.
 
 # Author #
 
- * Jeff McCune <jeff@puppetlabs.com>
+ * Jeff McCune <jeff@openinfrastructure.co>
  * [GitHub Project](https://github.com/jeffmccune/jeffmccune-motd)
- * [Blog](http://www.metamachine.net)
+ * [Hire Me!](https://openinfrastructure.co)
  * [@0xEFF](http://twitter.com/0xEFF)
 
 # Sample #
